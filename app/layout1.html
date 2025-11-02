@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        .wrap {
+            display: flex;
+            /* flex-direction: row|column; */
+            gap: 10px;
+            align-items: center;
+            /* flex-start, flex-end */
+            justify-content: center;
+            /* space-between, space-around */
+            margin: auto;
+            width: 1000px;
+            height: 500px;
+            background: silver;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

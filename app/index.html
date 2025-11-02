@@ -5,13 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
-    <div class="container">
+    <div class="navbar bg-primary navbar-dark navbar-expand">
+        <div class="container">
+            <a href="#" class="navbar-brand">
+                <i class="fa-solid fa-camera me-1"></i>
+                App
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <i class="fa-solid fa-home me-1"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-user-circle me-1"></i>
+                        About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-envelope me-1"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
+    <div class="container">
         <ul class="nav nav-tabs my-4">
             <li class="nav-item">
                 <a href="#" class="nav-link active">
+                    <i class="fa-solid fa-users me-1"></i>
                     All Users
                     <span class="badge bg-danger rounded-pill ms-2">10</span>
                 </a>
@@ -19,14 +52,47 @@
             <li class="nav-item">
                 <a href="#" class="nav-link">New Users</a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Other Users</a>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown">Other Users</a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Weekly Users</a>
+                    <a href="#" class="dropdown-item">Monthly Users</a>
+                    <a href="#" class="dropdown-item">Yearly Users</a>
+                </div>
             </li>
         </ul>
 
         <div class="alert alert-info">
             primary, secondary, info, success, warning, danger, dark
         </div>
+
+        <form class="mb-4">
+            <div class="mb-2">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control">
+            </div>
+            <div class="mb-2">
+                <label for="address">Address</label>
+                <textarea id="address" class="form-control"></textarea>
+            </div>
+            <div class="mb-2">
+                <label for="gender">Gender</label>
+                <select id="gender" class="form-select">
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+            </div>
+
+            <button class="btn btn-secondary">
+                <i class="fa-solid fa-arrow-left me-1"></i>
+                Go Back
+            </button>
+            <button class="btn btn-primary">
+                <i class="fa-solid fa-paper-plane me-1"></i>
+                Send
+            </button>
+        </form>
 
         <div class="card mb-4 bg-success text-light">
             <div class="card-header">Card Header</div>
