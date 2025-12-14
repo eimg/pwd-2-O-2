@@ -1,5 +1,5 @@
 {
-  "name": "hello-react",
+  "name": "social-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,9 +13,8 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fontsource/roboto": "^5.2.9",
-    "@mui/icons-material": "^7.3.5",
-    "@mui/material": "^7.3.5",
-    "@tanstack/react-query": "^5.90.12",
+    "@mui/icons-material": "^7.3.6",
+    "@mui/material": "^7.3.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

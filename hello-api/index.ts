@@ -20,9 +20,7 @@ app.get("/tasks", async (req, res) => {
         },
     });
 
-    setTimeout(() => {
-        res.json(tasks);
-    }, 2000);
+    res.json(tasks);
 });
 
 app.post("/tasks", async (req, res) => {
