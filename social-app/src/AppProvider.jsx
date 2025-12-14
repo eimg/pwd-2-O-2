@@ -10,7 +10,7 @@ export function useApp() {
 
 export default function AppProvider({ children }) {
 	const [mode, setMode] = useState("dark");
-	const [openDrawer, setOpenDrawer] = useState(true);
+	const [openDrawer, setOpenDrawer] = useState(false);
 	const [auth, setAuth] = useState();
 
 	const theme = useMemo(() => {
