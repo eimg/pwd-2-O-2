@@ -61,4 +61,26 @@ router.get("/:id", async (req, res) => {
 	res.json(post);
 });
 
+router.post("/:id/like", auth, async (req, res) => {
+    const { id: userId } = res.locals.user;
+    const postId = Number(req.params.id);
+
+    const like = await prisma.like.create({
+        data: { postId, userId },
+    });
+
+    res.json(like);
+});
+
+router.delete("/:id/like", auth, async (req, res) => {
+	const { id: userId } = res.locals.user;
+	const postId = Number(req.params.id);
+
+	const like = await prisma.like.deleteMany({
+		where: { postId, userId },
+	});
+
+	res.json(like);
+});
+
 export default router;
