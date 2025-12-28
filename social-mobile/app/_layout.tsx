@@ -9,6 +9,7 @@ export default function RootLayout() {
 				<Stack.Screen
 					name="(home)"
 					options={{
+                        title: "Home",
 						headerShown: false,
 					}}
 				/>
@@ -17,6 +18,12 @@ export default function RootLayout() {
 					options={{
 						presentation: "modal",
 						title: "New Post",
+					}}
+				/>
+				<Stack.Screen
+					name="view/[id]"
+					options={{
+						title: "Post Detail",
 					}}
 				/>
 			</Stack>

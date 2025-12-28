@@ -5,7 +5,7 @@ import Post from "@/components/post";
 import { useQuery } from "@tanstack/react-query";
 import { PostType } from "@/types/global";
 
-const api = "http://192.168.1.6:8800";
+const api = "http://192.168.1.4:8800";
 
 export default function Home() {
 	const {

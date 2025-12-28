@@ -16,5 +16,6 @@ export type PostType = {
     content: string;
     user: UserType;
     comments: CommentType[];
+    likes: [];
     createdAt: string;
 }
