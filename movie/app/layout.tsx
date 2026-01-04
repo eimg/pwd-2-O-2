@@ -22,12 +22,26 @@ import { Input } from "@/components/ui/input";
 import { Clapperboard, Play } from "lucide-react";
 
 import Link from "next/link";
+import { GenreType } from "@/types/global";
 
-export default function RootLayout({
+async function fetchGenres(): Promise<GenreType[]> {
+	const res = await fetch("https://api.themoviedb.org/3/genre/movie/list", {
+		headers: {
+			Authorization: `Bearer ${process.env.TMDB_TOKEN}`,
+		},
+	});
+
+	const data = await res.json();
+	return data.genres;
+}
+
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const genres = await fetchGenres();
+
 	return (
 		<html lang="en">
 			<body
@@ -45,7 +59,7 @@ export default function RootLayout({
 				<section className="flex">
 					<aside className="p-4 border-r w-60 flex flex-col gap-1">
 						<Button
-                            asChild
+							asChild
 							variant="outline"
 							className="flex items-center justify-start">
 							<Link
@@ -55,17 +69,22 @@ export default function RootLayout({
 								All Movies
 							</Link>
 						</Button>
-						<Button
-                            asChild
-							variant="outline"
-							className="flex items-center justify-start">
-							<Link
-								href="/genre/action/123"
-								className="flex gap-2 items-center justify-start">
-								<Play />
-								Action
-							</Link>
-						</Button>
+						{genres.map(genre => {
+							return (
+								<Button
+									key={genre.id}
+									asChild
+									variant="outline"
+									className="flex items-center justify-start">
+									<Link
+										href={`/genre/${genre.name}/${genre.id}`}
+										className="flex gap-2 items-center justify-start">
+										<Play />
+										{genre.name}
+									</Link>
+								</Button>
+							);
+						})}
 					</aside>
 					<main className="p-4">{children}</main>
 				</section>
