@@ -23,6 +23,7 @@ import { Clapperboard, Play } from "lucide-react";
 
 import Link from "next/link";
 import { GenreType } from "@/types/global";
+import { redirect } from "next/navigation";
 
 async function fetchGenres(): Promise<GenreType[]> {
 	const res = await fetch("https://api.themoviedb.org/3/genre/movie/list", {
@@ -42,6 +43,13 @@ export default async function RootLayout({
 }>) {
 	const genres = await fetchGenres();
 
+    async function search(formData: FormData) {
+        "use server";
+
+        const q = formData.get("q");
+        redirect(`/search?q=${q}`);
+    }
+
 	return (
 		<html lang="en">
 			<body
@@ -51,8 +59,8 @@ export default async function RootLayout({
 						<Clapperboard />
 						Next Movie
 					</h1>
-					<form className="flex items-center gap-1">
-						<Input placeholder="Search" />
+					<form action={search} className="flex items-center gap-1">
+						<Input name="q" placeholder="Search" />
 						<Button>Search</Button>
 					</form>
 				</header>
